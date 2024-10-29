@@ -10,6 +10,11 @@
 import type { Layout, Node, Yoga } from "./src/yoga.ts";
 import { constants, Direction, Unit } from "./src/yoga_const.ts";
 
+// hack: for tests
+Object.defineProperty(globalThis, "YGBENCHMARK", {
+  get: () => Deno.test,
+});
+
 let module!: { exports: Yoga };
 
 if (typeof Deno === "object") {
@@ -160,11 +165,6 @@ patch(
     return original.call(this, wrapMeasureFunction(measureFunc) as any);
   },
 );
-
-// hack: for tests
-Object.defineProperty(globalThis, "YGBENCHMARK", {
-  get: () => Deno.test,
-});
 
 export * from "./src/yoga_const.ts";
 export * from "./src/yoga.ts";

@@ -6,10 +6,7 @@
   },
 
   "imports": {
-    "yoga-layout": "./mod.ts",
-    "jest": "npm:jest",
-    "@babel/preset-env": "npm:@babel/preset-env",
-    "source-map": "npm:source-map"
+    "yoga-layout": "./mod.ts"
   },
 
   "test": {
