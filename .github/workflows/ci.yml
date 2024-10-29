@@ -37,6 +37,9 @@ jobs:
         with:
           deno-version: "v2.x"
 
+      - name: Build Yoga
+        run: deno task build-yoga
+
       - name: Build
         run: deno task build
 
