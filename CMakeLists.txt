@@ -40,7 +40,6 @@ target_link_libraries(
 target_link_options(
   ${NAME}
   PRIVATE
-  "-Wl"
   "-undefined"
   "dynamic_lookup"
 )
