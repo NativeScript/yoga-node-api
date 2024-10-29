@@ -38,7 +38,7 @@ jobs:
           deno-version: "v2.x"
 
       - name: Install Ninja
-        run: sudo apt-get install ninja-build
+        run: brew install ninja
 
       - name: Build Yoga
         run: deno task build-yoga
