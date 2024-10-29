@@ -1,0 +1,29 @@
+{
+  "tasks": {
+    "build-yoga": "cd yoga && cmake -B build -S . -D CMAKE_BUILD_TYPE=\"Release\" -G Ninja && cmake --build build",
+    "build": "cmake -B build -S . -D CMAKE_BUILD_TYPE=\"Release\" && cmake --build build",
+    "test": "deno test -A"
+  },
+
+  "imports": {
+    "yoga-layout": "./mod.ts",
+    "jest": "npm:jest",
+    "@babel/preset-env": "npm:@babel/preset-env",
+    "source-map": "npm:source-map"
+  },
+
+  "test": {
+    "include": ["./tests"]
+  },
+
+  "lint": {
+    "exclude": ["./yoga", "./build"],
+    "rules": {
+      "exclude": ["no-unused-vars", "no-process-globals", "no-var"]
+    }
+  },
+
+  "fmt": {
+    "exclude": ["./yoga", "./build", ".vscode/"]
+  }
+}
