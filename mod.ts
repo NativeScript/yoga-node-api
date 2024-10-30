@@ -64,8 +64,10 @@ for (
     "setGap",
   ]
 ) {
-  // deno-lint-ignore ban-types
-  const methods: Record<Unit, Function> = {
+  const methods: Record<
+    Unit,
+    (this: any, ...args: any[]) => unknown
+  > = {
     [Unit.Point]: lib.Node.prototype[fnName],
     [Unit.Percent]: lib.Node.prototype[`${fnName}Percent`],
     [Unit.Auto]: lib.Node.prototype[`${fnName}Auto`],
@@ -75,7 +77,7 @@ for (
   patch(
     lib.Node.prototype,
     fnName,
-    function (_original: unknown, ...args: any[]) {
+    function (this: any, _original: unknown, ...args: any[]) {
       // We patch all these functions to add support for the following calls:
       // .setWidth(100) / .setWidth("100%") / .setWidth(.getWidth()) / .setWidth("auto")
 
@@ -109,10 +111,8 @@ for (
       }
 
       if (asNumber !== undefined) {
-        // @ts-expect-error yeah
         return methods[unit].call(this, ...args, asNumber);
       } else {
-        // @ts-expect-error yeah
         return methods[unit].call(this, ...args);
       }
     },
