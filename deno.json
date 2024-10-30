@@ -32,7 +32,7 @@
   },
 
   "lint": {
-    "exclude": ["./yoga", "./build"],
+    "exclude": ["./yoga", "./build", "./tests"],
     "rules": {
       "exclude": ["no-unused-vars", "no-process-globals", "no-var"]
     }

@@ -24,9 +24,7 @@ if (typeof Deno === "object") {
     module,
     new URL("./build/libyoga_node_api.dylib", import.meta.url).pathname,
   );
-  // @ts-expect-error require is not defined
 } else if (typeof require !== "undefined") {
-  // @ts-expect-error require is not defined
   const r = require;
   module = r(
     "NSBundle" in globalThis
