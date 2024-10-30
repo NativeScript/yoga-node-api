@@ -3,14 +3,34 @@ on: release
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
-
+    runs-on: macos-latest
+    
     permissions:
       contents: read
       id-token: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Setup repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
 
-      - name: Publish package
-        run: npx jsr publish
+      - name: Setup Deno
+        uses: denoland/setup-deno@main
+        with:
+          deno-version: "v2.x"
+
+      - name: Install Ninja
+        run: brew install ninja
+
+      - name: Build Yoga
+        run: deno task build-yoga
+
+      - name: Build
+        run: deno task build
+
+      - name: Test
+        run: deno task test
+
+      - name: Publish
+        run: deno publish
