@@ -2,3 +2,4 @@
 .DS_Store
 build/
 deno.lock
+node_modules/

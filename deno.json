@@ -1,4 +1,24 @@
 {
+  "name": "@nativescript/yoga-node-api",
+  "version": "0.1.0",
+  "exports": "./mod.ts",
+
+  "publish": {
+    "include": [
+      "./build/libyoga_node_api.dylib",
+      "./src/**/*.ts",
+      "./mod.ts",
+      "./README.md"
+    ],
+    "exclude": [
+      "./yoga/",
+      "./tests/",
+      "./package.json"
+    ]
+  },
+
+  "nodeModulesDir": "auto",
+
   "tasks": {
     "build-yoga": "cd yoga && cmake -B build -S . -D CMAKE_BUILD_TYPE=\"Release\" -G Ninja && cmake --build build",
     "build": "cmake -B build -S . -D CMAKE_BUILD_TYPE=\"Release\" && cmake --build build",
