@@ -4,7 +4,7 @@ on: release
 jobs:
   publish:
     runs-on: macos-latest
-    
+
     permissions:
       contents: read
       id-token: write
