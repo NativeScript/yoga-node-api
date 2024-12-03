@@ -18,7 +18,7 @@
   },
 
   "tasks": {
-    "build-yoga": "cd yoga && cmake -B build -S . -D CMAKE_BUILD_TYPE=\"Release\" -G Ninja && cmake --build build",
+    "build-yoga": "cd yoga && cmake -B build -S . -DCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\" -D CMAKE_BUILD_TYPE=\"Release\" -G Ninja && cmake --build build",
     "build": "cmake -B build -S . -D CMAKE_BUILD_TYPE=\"Release\" && cmake --build build",
     "test": "deno test -A"
   },

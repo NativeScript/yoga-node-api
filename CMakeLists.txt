@@ -10,6 +10,8 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 set(CMAKE_CXX_STANDARD 20)
 
+set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64")
+
 include_directories(
   ${CMAKE_SOURCE_DIR}/yoga
   ${CMAKE_SOURCE_DIR}/src
